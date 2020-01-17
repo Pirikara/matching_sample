@@ -7,7 +7,7 @@
     <header class="header">
       <p class='header_logo'>
       <a href="{{ route('home') }}">
-      <img src="/storage/images/techpit-match-icon.png">
+      <img src="/storage/images/logo.png">
       </a>
       </p>
     </header>
