@@ -18,6 +18,7 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
+            //認証したらhome画面に遷移する
             return redirect('/home');
         }
 
