@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.layout')
 
 @section('content')
 <div class="signupPage">
@@ -18,7 +18,6 @@
       </label>
       <div class="userImgPreview" id="userImgPreview">
         <img id="thumbnail" class="userImgPreview_content" accept="image/*" src="">
-        <div class="delete-image">削除</div>
         <p class="userImgPreview_text">画像をアップロード済み</p>
       </div>
       <div class="form-group @error('name')has-error @enderror">
