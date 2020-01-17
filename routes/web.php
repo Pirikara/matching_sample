@@ -11,6 +11,13 @@
 |
 */
 
+//"middleware" => "auth"でユーザー認証済みかどうかを判定
+//ユーザー認証済みかつprefexがusersのURLにのみgroup内部のルーティングが適用される
+Route::group(['prefix' => 'users', 'middleware' => 'auth'], function(){
+    Route::get('show/{id}', 'UserController@show')->name('users.show');
+});
+
+
 Route::get('/', function () {
     return view('top');
 });
