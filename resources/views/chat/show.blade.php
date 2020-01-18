@@ -14,7 +14,7 @@
     <div class="messagesArea messages">
     @foreach($chat_messages as $message)
     <div class="message">
-      @if($message->user_id = Auth::id())
+      @if($message->user_id == Auth::id())
         <span>{{Auth::user()->name}}</span>
       @else
         <span>{{$chat_room_user_name}}</span>
@@ -37,10 +37,10 @@
 </div>
 
 <script>
-var chat_room_id = {{ $chat_room_id }};
-var user_id = {{ Auth::user()->id }};
-var current_user_name = "{{ Auth::user()->name }}";
-var chat_room_user_name = "{{ $chat_room_user_name }}";
+  var chat_room_id = {{ $chat_room_id }};
+  var user_id = {{ Auth::user()->id }};
+  var current_user_name = "{{ Auth::user()->name }}";
+  var chat_room_user_name = "{{ $chat_room_user_name }}";
 </script>
 
 @endsection
