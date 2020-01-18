@@ -17312,6 +17312,10 @@ readers do not read off random characters that represent icons */
   color: #fff;
 }
 
+.container {
+  max-width: 610px;
+}
+
 body {
   overflow: visible;
 }
@@ -17430,6 +17434,10 @@ body {
   color: #fd5068;
 }
 
+.container {
+  max-width: 610px;
+}
+
 .signinPage {
   margin-top: 10vh;
 }
@@ -17476,6 +17484,10 @@ body {
 
 .signinPage .errorMessage {
   color: #fd5068;
+}
+
+.container {
+  max-width: 610px;
 }
 
 .usershowPage .header {
@@ -17548,6 +17560,10 @@ body {
 
 .usershowPage .userAction_common > a:hover {
   color: #fd5068;
+}
+
+.container {
+  max-width: 610px;
 }
 
 .userEditPage .header {
@@ -17834,21 +17850,22 @@ body {
   color: #dccbcb;
 }
 
+.container {
+  max-width: 610px;
+}
+
 .matchingPage .header {
+  max-width: 610px;
+  margin: 0 auto;
   display: -webkit-box;
   display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-          justify-content: center;
   padding: 10px;
   color: #fd5068;
   border-bottom: 1px solid #e8e8e8;
-}
-
-.matchingPage .header_logo {
-  position: absolute;
-  left: 30px;
 }
 
 .matchingPage .header_logo > a {

@@ -4,8 +4,9 @@
 
 <div class="matchingPage">
   <header class="header">
-    <i class="fas fa-comments fa-3x"></i>
     <div class="header_logo"><a href="{{route('home')}}"><img src="/storage/images/logo.png"></a></div>
+    <i class="fas fa-comments fa-3x"></i>
+    <a href="/users/show/{{Auth::id()}}"><i class="fas fa-user fa-2x"></i></a>
   </header>
   <div class="container">
     <div class="mt-5">
