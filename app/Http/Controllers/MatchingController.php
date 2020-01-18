@@ -12,8 +12,7 @@ use App\Constant\Status;
 class MatchingController extends Controller
 {
     //
-    public static function index ()
-    {
+    public static function index(){
         //likeしてくれた人のid情報のみ取得する
         $got_reaction_ids = Reaction::where([
             ['to_user_id', Auth::id()],
