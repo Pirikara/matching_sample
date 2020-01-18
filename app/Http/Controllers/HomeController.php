@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -26,6 +27,11 @@ class HomeController extends Controller
     {
         $users = User::all();
 
-        return view('home', compact('users'));
+        // 全ユーザーの数を取得
+        $userCount = $users->count();
+        // 現在ログインしているユーザーのIDを取得
+        $from_user_id = Auth::id();
+
+        return view('home', compact('users', 'userCount', 'from_user_id'));
     }
 }

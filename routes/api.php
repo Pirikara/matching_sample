@@ -13,6 +13,10 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+//Ajax通信でデータを取得する際は、routes/apiに記述する
+//localhost::8000/api/like
+Route::post('/like', 'ReactionController@create');

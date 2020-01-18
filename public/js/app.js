@@ -49685,11 +49685,63 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$("#tinderslide").jTinder();
+var currentUserIndex = 0;
+
+var postReaction = function postReaction(to_user_id, reaction) {
+  //ajaxの共通処理を記述
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  }); //3つの情報をpostする
+
+  $.ajax({
+    type: 'POST',
+    url: "/api/like",
+    data: {
+      to_user_id: to_user_id,
+      from_user_id: from_user_id,
+      reaction: reaction
+    },
+    success: function success(j_data) {
+      console.log("success");
+    }
+  });
+};
+
+$('#tinderslide').jTinder({
+  onDislike: function onDislike(item) {
+    currentUserIndex++;
+    checkUserNum();
+    var to_user_id = item[0].dataset.user_id;
+    postReaction(to_user_id, 'dislike');
+  },
+  onLike: function onLike(item) {
+    currentUserIndex++;
+    checkUserNum();
+    var to_user_id = item[0].dataset.user_id;
+    postReaction(to_user_id, 'like');
+  },
+  animationRevertSpeed: 200,
+  animationSpeed: 400,
+  threshold: 1,
+  likeSelector: '.like',
+  dislikeSelector: '.dislike'
+});
 $('.actions .like, .actions .dislike').click(function (e) {
   e.preventDefault();
   $("#tinderslide").jTinder($(this).attr('class'));
 });
+
+function checkUserNum() {
+  // スワイプするユーザー数とスワイプした回数が同じになればaddClassする
+  // スワイプスるユーザーがいなくなったらnoUserクラスのdivを表示させ、bottunを消す
+  if (currentUserIndex === usersNum) {
+    $(".noUser").addClass("is-active");
+    $("#actionBtnArea").addClass("is-none");
+    return;
+  }
+}
 
 /***/ }),
 
