@@ -9,11 +9,13 @@ require('./bootstrap');
 require('./users')
 
 //jTinderライブラリの導入
-require('./jquery.jTinder'); //追加
+require('./jquery.jTinder');
 
-require('./jquery.transform2d'); //追加
+require('./jquery.transform2d');
 
 require('./jTinder');
+
+require('./chat'); 
 
 window.Vue = require('vue');
 
